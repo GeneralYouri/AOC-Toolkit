@@ -13,6 +13,9 @@ export default {
         commonjs(),
         babel({
             exclude: 'node_modules/**',
+            babelrc: false,
+            presets: [['env', { modules: false }]],
+            plugins: ['external-helpers'],
         }),
     ],
 };
