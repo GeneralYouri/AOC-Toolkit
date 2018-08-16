@@ -2,7 +2,7 @@
     "name": "aoc-toolkit",
     "version": "1.0.0",
     "description": "A JS toolkit with helpful features useful for programming challenges / puzzles, such as Advent of Code",
-    "main": "index.js",
+    "main": "dist/bundle.js",
     "scripts": {
         "eslint": "eslint src",
         "test": "jest",
