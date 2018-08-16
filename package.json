@@ -6,7 +6,8 @@
     "scripts": {
         "eslint": "eslint src",
         "test": "jest",
-        "build": "rollup -c"
+        "build": "rollup -c",
+        "install": "npm run build"
     },
     "repository": {
         "type": "git",
