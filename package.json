@@ -4,7 +4,8 @@
     "description": "A JS toolkit with helpful features useful for programming challenges / puzzles, such as Advent of Code",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "eslint": "eslint src",
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -30,6 +31,8 @@
     "devDependencies": {
         "eslint": "^5.3.0",
         "eslint-config-airbnb-base": "^13.1.0",
-        "eslint-plugin-import": "^2.14.0"
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jest": "^21.21.0",
+        "jest": "^23.5.0"
     }
 }
