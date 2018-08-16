@@ -26,5 +26,9 @@
     "bugs": {
         "url": "https://github.com/GeneralYouri/AOC-Toolkit/issues"
     },
-    "homepage": "https://github.com/GeneralYouri/AOC-Toolkit#readme"
+    "homepage": "https://github.com/GeneralYouri/AOC-Toolkit#readme",
+    "devDependencies": {
+        "eslint": "^5.3.0",
+        "eslint-config-airbnb-base": "^13.1.0"
+    }
 }
