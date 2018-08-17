@@ -13,4 +13,10 @@ export const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
  * @param limit {number} The upper limit, the modulo to wrap by
  * @returns {number}
  */
-export const wrap = (n, limit) => n % limit;
+export const wrap = (n, limit) => {
+    if (limit <= 0) {
+        throw new Error('`limit` Must be greater than zero');
+    }
+
+    return n % limit;
+};

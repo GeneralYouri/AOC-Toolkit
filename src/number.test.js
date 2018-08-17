@@ -22,4 +22,8 @@ describe('wrap', () => {
     it('should return the wrapped input number when the input number is >= the wrap limit', () => {
         expect(wrap(123, 45)).toBe(33);
     });
+
+    it('should throw when the wrap limit is <= 0', () => {
+        expect(() => wrap(123, -45)).toThrow('`limit` Must be greater than zero');
+    });
 });
