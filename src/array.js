@@ -22,6 +22,8 @@
 //     '%s must be greater than or equal to %s',
 // );
 
+import { wrap } from './number';
+
 /**
  * Create an iterable array of the given length
  * @param {number} length - The length of the desired array
@@ -34,6 +36,18 @@ export const createArrayFromLength = (length) => {
     if (length < 0) {
         throw new Error('`length` Must be non-negative');
     }
-
     return Array.from(Array(length)).map(Number);
+};
+
+/**
+ * Wrap an index number around the length of the given array
+ * @param {array} array - The array providing the length to wrap around
+ * @param {number} index - The index number to wrap
+ * @returns {number}
+ */
+export const wrapIndex = (array, index) => {
+    if (array.length === 0) {
+        throw new Error('Array length of 0 makes index wrapping impossible');
+    }
+    return wrap(index, array.length);
 };
