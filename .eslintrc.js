@@ -37,13 +37,16 @@ module.exports = {
         // Even AirBnB themselves allow this, just use with caution
         'no-bitwise': 0,
 
-        /** @see https://github.com/airbnb/javascript#modules--no-webpack-loader-syntax */
-        'import/no-webpack-loader-syntax': 2,
-
         // For this Node application, for .. of loops are just fine
         'no-restricted-syntax': 0,
 
         // Used 'after' since before airbnb-base enforced this rule with 'before', no need to change now
         'operator-linebreak': [2, 'after'],
+
+        /** @see https://github.com/airbnb/javascript#modules--no-webpack-loader-syntax */
+        'import/no-webpack-loader-syntax': 2,
+
+        // Toolkit files can have varying amounts of features (even 1), in which case we don't want a default export at all
+        'import/prefer-default-export': 0,
     },
 };
