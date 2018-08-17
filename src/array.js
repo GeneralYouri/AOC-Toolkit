@@ -31,5 +31,9 @@ export const createArrayFromLength = (length) => {
     // assert(length, 'length', [assert.isNumber, assert.greaterThanOrEqual(0)]);
     // assert(arg2, 'arg2', [assert.isNumber, assert.greaterThanOrEqual(0)]);
 
+    if (length < 0) {
+        throw new Error('`length` Must not be negative');
+    }
+
     return Array.from(Array(length)).map(Number);
 };
