@@ -10,7 +10,7 @@ describe('createArrayFromLength', () => {
         expect(elementCount).toBe(10);
     });
 
-    it('should throw on negative length values', () => {
-        expect(() => createArrayFromLength(-1)).toThrow('`length` Must not be negative');
+    it('should throw when length is negative', () => {
+        expect(() => createArrayFromLength(-1)).toThrow('`length` Must be non-negative');
     });
 });
