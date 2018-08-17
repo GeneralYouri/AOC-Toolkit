@@ -24,7 +24,7 @@
 
 /**
  * Create an iterable array of the given length
- * @param length {number} The length of the desired array
+ * @param {number} length - The length of the desired array
  * @returns {number[]}
  */
 export const createArrayFromLength = (length) => {
@@ -32,7 +32,7 @@ export const createArrayFromLength = (length) => {
     // assert(arg2, 'arg2', [assert.isNumber, assert.greaterThanOrEqual(0)]);
 
     if (length < 0) {
-        throw new Error('`length` Must not be negative');
+        throw new Error('`length` Must be non-negative');
     }
 
     return Array.from(Array(length)).map(Number);
