@@ -2,10 +2,12 @@
     "name": "aoc-toolkit",
     "version": "1.0.0",
     "description": "A JS toolkit with helpful features useful for programming challenges / puzzles, such as Advent of Code",
-    "main": "index.js",
+    "main": "dist/bundle.js",
     "scripts": {
         "eslint": "eslint src",
-        "test": "jest"
+        "test": "jest",
+        "build": "rollup -c",
+        "install": "npm run build"
     },
     "repository": {
         "type": "git",
@@ -29,10 +31,18 @@
     },
     "homepage": "https://github.com/GeneralYouri/AOC-Toolkit#readme",
     "devDependencies": {
+        "babel-jest": "^23.4.2",
+        "babel-plugin-external-helpers": "^6.22.0",
+        "babel-preset-env": "^1.7.0",
         "eslint": "^5.3.0",
         "eslint-config-airbnb-base": "^13.1.0",
         "eslint-plugin-import": "^2.14.0",
         "eslint-plugin-jest": "^21.21.0",
-        "jest": "^23.5.0"
+        "jest": "^23.5.0",
+        "regenerator-runtime": "^0.12.1",
+        "rollup": "^0.64.1",
+        "rollup-plugin-babel": "^3.0.7",
+        "rollup-plugin-commonjs": "^9.1.5",
+        "rollup-plugin-node-resolve": "^3.3.0"
     }
 }
