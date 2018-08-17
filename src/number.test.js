@@ -24,6 +24,6 @@ describe('wrap', () => {
     });
 
     it('should throw when the wrap limit is <= 0', () => {
-        expect(() => wrap(123, -45)).toThrow('`limit` Must be greater than zero');
+        expect(() => wrap(123, -45)).toThrow();
     });
 });

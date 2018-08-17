@@ -1,28 +1,5 @@
-// import { format } from 'util';
-//
-// const assert = (value, name, rules) => {
-//     for (const rule of rules) {
-//         const isValid = rule(value);
-//         if (!isValid) {
-//             throw new Error(`${name} ${isValid}`);
-//         }
-//     }
-// };
-//
-// assert.addRule = (ruleName, cb, msg) => {
-//     assert[ruleName] = (input) => {
-//         return cb(input);
-//     };
-// };
-//
-// assert.addRule('isNumber', value => [typeof value === 'number'], '%s must be of type number');
-// assert.addRule(
-//     'greaterThanOrEqual',
-//     input => value => value >= input,
-//     '%s must be greater than or equal to %s',
-// );
-
 import { wrap } from './number';
+import { assert } from './assert';
 
 /**
  * Create an iterable array of the given length
@@ -30,12 +7,8 @@ import { wrap } from './number';
  * @returns {number[]}
  */
 export const createArrayFromLength = (length) => {
-    // assert(length, 'length', [assert.isNumber, assert.greaterThanOrEqual(0)]);
-    // assert(arg2, 'arg2', [assert.isNumber, assert.greaterThanOrEqual(0)]);
+    assert(length, 'length', [assert.isNumber, assert.greaterThanOrEqual(0)]);
 
-    if (length < 0) {
-        throw new Error('`length` Must be non-negative');
-    }
     return Array.from(Array(length)).map(Number);
 };
 
@@ -46,8 +19,7 @@ export const createArrayFromLength = (length) => {
  * @returns {number}
  */
 export const wrapIndex = (array, index) => {
-    if (array.length === 0) {
-        throw new Error('Array length of 0 makes index wrapping impossible');
-    }
+    assert(array.length, 'array length', [assert.greaterThanOrEqual(0)]);
+
     return wrap(index, array.length);
 };

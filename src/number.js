@@ -1,3 +1,5 @@
+import { assert } from './assert';
+
 /**
  * Clamp a number between lower and upper bounds
  * @param {number} n - The number to clamp
@@ -14,9 +16,7 @@ export const clamp = (n, min, max = n) => Math.max(min, Math.min(max, n));
  * @returns {number}
  */
 export const wrap = (n, limit) => {
-    if (limit <= 0) {
-        throw new Error('`limit` Must be greater than zero');
-    }
+    assert(limit, 'limit', [assert.greaterThan(0)]);
 
     return n % limit;
 };
