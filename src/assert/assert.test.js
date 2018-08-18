@@ -1,21 +1,35 @@
 import { assert, ruleFactory } from './assert';
 
 describe('assert', () => {
-    // TODO
-    // it('should call all given rule functions when an array of rule functions is passed', () => {
-    //     expect();
-    // });
-    //
-    // it('should throw when an assertion fails', () => {
-    //     expect(assert('', '', [])).toThrow();
-    // });
-    //
-    // it('should not throw when all assertions pass', () => {
-    //     expect(assert('', '', [])).not.toThrow();
-    // });
-
     it('should not throw when an empty rules array is passed', () => {
         expect(() => assert('', '', [])).not.toThrow();
+    });
+
+    it('should throw when an assertion fails', () => {
+        const isNumberMock = jest.fn().mockReturnValue(false);
+        expect(() => assert('', '', [isNumberMock])).toThrow();
+        isNumberMock.mockReset();
+    });
+
+    it('should not throw when all assertions pass', () => {
+        const isStringMock = jest.fn().mockReturnValue(true);
+        expect(() => assert('', '', [isStringMock])).not.toThrow();
+        isStringMock.mockReset();
+    });
+
+    it('should only call all assertions up until the failed assertion when an array of rule functions is passed and an assertion fails', () => {
+        const isNumberMock = jest.fn().mockReturnValue(true);
+        const isStringMock = jest.fn().mockReturnValue(false);
+        const isGreaterThanZeroMock = jest.fn().mockReturnValue(false);
+
+        expect(() => assert(-1, '', [isNumberMock, isStringMock, isGreaterThanZeroMock])).toThrow();
+        expect(isNumberMock).toHaveBeenCalledTimes(1);
+        expect(isStringMock).toHaveBeenCalledTimes(1);
+        expect(isGreaterThanZeroMock).toHaveBeenCalledTimes(0);
+
+        isNumberMock.mockReset();
+        isStringMock.mockReset();
+        isGreaterThanZeroMock.mockReset();
     });
 });
 
@@ -37,7 +51,7 @@ describe('addRule', () => {
 
             addRule('test', () => null, 'test');
 
-            // ruleFactoryMock.mockRestore();
+            ruleFactoryMock.mockRestore();
 
             expect(assert).toHaveProperty('test');
         });
