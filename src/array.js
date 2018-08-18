@@ -7,9 +7,9 @@ import { assert } from './assert';
  * @returns {number[]}
  */
 export const createArrayFromLength = (length) => {
-    assert(length, 'length', [assert.isNumber, assert.greaterThanOrEqual(0)]);
+    assert(length, 'length', [assert.greaterThanOrEqual(0)]);
 
-    return Array.from(Array(length)).map(Number);
+    return Array.from(Array(length));
 };
 
 /**
