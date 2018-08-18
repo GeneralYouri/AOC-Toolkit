@@ -6,7 +6,7 @@ import { addRule } from './assert';
  * @param {*} type - The desired type of the value
  * @returns {Function}
  */
-const createIsType = (type) => {
+export const createIsType = (type) => {
     switch (type) {
         case Boolean:
             return value => typeof value === 'boolean';
