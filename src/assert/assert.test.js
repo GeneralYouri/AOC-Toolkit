@@ -17,19 +17,26 @@ describe('assert', () => {
         isStringMock.mockReset();
     });
 
-    it('should only call all assertions up until the failed assertion when an array of rule functions is passed and an assertion fails', () => {
+    describe('when an array of rule functions is passed and an assertion fails midway', () => {
         const isNumberMock = jest.fn().mockReturnValue(true);
         const isStringMock = jest.fn().mockReturnValue(false);
         const isGreaterThanZeroMock = jest.fn().mockReturnValue(false);
+        try { assert(-1, '', [isNumberMock, isStringMock, isGreaterThanZeroMock]); } catch (e) {}
 
-        expect(() => assert(-1, '', [isNumberMock, isStringMock, isGreaterThanZeroMock])).toThrow();
-        expect(isNumberMock).toHaveBeenCalledTimes(1);
-        expect(isStringMock).toHaveBeenCalledTimes(1);
-        expect(isGreaterThanZeroMock).toHaveBeenCalledTimes(0);
+        it('should execute all assertions up until the failed assertion', () => {
+            expect(isNumberMock).toHaveBeenCalledTimes(1);
+            expect(isStringMock).toHaveBeenCalledTimes(1);
+        });
 
-        isNumberMock.mockReset();
-        isStringMock.mockReset();
-        isGreaterThanZeroMock.mockReset();
+        it('should not execute any assertions beyond the failed assertion', () => {
+            expect(isGreaterThanZeroMock).toHaveBeenCalledTimes(0);
+        });
+
+        afterAll(() => {
+            isNumberMock.mockReset();
+            isStringMock.mockReset();
+            isGreaterThanZeroMock.mockReset();
+        });
     });
 });
 
