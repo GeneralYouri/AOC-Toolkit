@@ -52,11 +52,18 @@ addRule('isInstanceof', type => value => value instanceof type, '%s must be a %s
 
 
 /**
- * Asserts that a number value is >= the given minimum value
- * @var {Function} assert.greaterThanOrEqual
- * @param {number} min - The minimum value to compare against
+ * Asserts that a number value is < the given maximum value
+ * @var {Function} assert.lessThan
+ * @param {number} max - The v value to compare against
  */
-addRule('greaterThanOrEqual', input => value => value >= input, '%s must be greater than or equal to %s');
+addRule('lessThan', input => value => value < input, '%s must be less than to %s');
+
+/**
+ * Asserts that a number value is <= the given maximum value
+ * @var {Function} assert.lessThanOrEqual
+ * @param {number} max - The v value to compare against
+ */
+addRule('lessThanOrEqual', input => value => value <= input, '%s must be less than or equal to %s');
 
 /**
  * Asserts that a number value is >= the given minimum value
@@ -64,3 +71,10 @@ addRule('greaterThanOrEqual', input => value => value >= input, '%s must be grea
  * @param {number} min - The minimum value to compare against
  */
 addRule('greaterThan', input => value => value > input, '%s must be greater than %s');
+
+/**
+ * Asserts that a number value is >= the given minimum value
+ * @var {Function} assert.greaterThanOrEqual
+ * @param {number} min - The minimum value to compare against
+ */
+addRule('greaterThanOrEqual', input => value => value >= input, '%s must be greater than or equal to %s');

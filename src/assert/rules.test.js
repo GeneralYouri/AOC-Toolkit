@@ -64,3 +64,40 @@ describe('assert.isInstanceof', () => {
         expect(assert.isInstanceof(MyType)(myInstance)).toBeTruthy();
     });
 });
+
+
+describe('assert.lessThan', () => {
+    it('should be a function that returns a function that checks a value to be < the given maximum value', () => {
+        expect(typeof assert.lessThan).toBe('function');
+        const lessThanZero = assert.lessThan(0);
+        expect(typeof lessThanZero).toBe('function');
+        expect(lessThanZero(-1)).toBeTruthy();
+    });
+});
+
+describe('assert.lessThanOrEqual', () => {
+    it('should be a function that returns a function that checks a value to be <= the given maximum value', () => {
+        expect(typeof assert.lessThanOrEqual).toBe('function');
+        const lessThanOrEqualZero = assert.lessThanOrEqual(0);
+        expect(typeof lessThanOrEqualZero).toBe('function');
+        expect(lessThanOrEqualZero(0)).toBeTruthy();
+    });
+});
+
+describe('assert.greaterThan', () => {
+    it('should be a function that returns a function that checks a value to be > the given minimum value', () => {
+        expect(typeof assert.greaterThan).toBe('function');
+        const greaterThanZero = assert.greaterThan(0);
+        expect(typeof greaterThanZero).toBe('function');
+        expect(greaterThanZero(1)).toBeTruthy();
+    });
+});
+
+describe('assert.greaterThanOrEqual', () => {
+    it('should be a function that returns a function that checks a value to be >= the given minimum value', () => {
+        expect(typeof assert.greaterThanOrEqual).toBe('function');
+        const greaterThanOrEqualZero = assert.greaterThanOrEqual(0);
+        expect(typeof greaterThanOrEqualZero).toBe('function');
+        expect(greaterThanOrEqualZero(0)).toBeTruthy();
+    });
+});
