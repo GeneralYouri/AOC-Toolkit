@@ -2,71 +2,54 @@ import { addRule } from './assert';
 
 
 /**
- * Create a function that can check whether a value is of the given type
- * @param {*} type - The desired type of the value
- * @returns {Function}
- */
-export const createIsType = (type) => {
-    switch (type) {
-        case Boolean:
-            return value => typeof value === 'boolean';
-        case Number:
-            return value => typeof value === 'number';
-        case String:
-            return value => typeof value === 'string';
-        case Object:
-            return value => typeof value === 'object' || typeof value === 'function';
-        case Array:
-            return value => Array.isArray(value);
-        case Function:
-            return value => typeof value === 'function';
-        default:
-            return value => value instanceof type;
-    }
-};
-
-/**
- * Assert that a value is of the given type
- * @var {Function} assert.isType
- * @param {*} type - The desired type of the value
- */
-addRule('isType', createIsType, '%s must be of type %s');
-
-/**
+ * Check whether a value is a Boolean
  * @var {Function} assert.isBoolean
- * @param {*} type - The desired type of the value
+ * @param {*} value - The value to test
  */
-addRule('isBoolean', createIsType(Boolean), '%s must be of type Boolean');
+addRule('isBoolean', value => typeof value === 'boolean', '%s must be a Boolean');
 
 /**
+ * Check whether a value is a Number
  * @var {Function} assert.isNumber
- * @param {*} type - The desired type of the value
+ * @param {*} value - The value to test
  */
-addRule('isNumber', createIsType(Number), '%s must be of type Number');
+addRule('isNumber', value => typeof value === 'number', '%s must be a Number');
 
 /**
+ * Check whether a value is a String
  * @var {Function} assert.isString
- * @param {*} type - The desired type of the value
+ * @param {*} value - The value to test
  */
-addRule('isString', createIsType(String), '%s must be of type String');
+addRule('isString', value => typeof value === 'string', '%s must be a String');
 
 /**
+ * Check whether a value is an Object
  * @var {Function} assert.isObject
- * @param {*} type - The desired type of the value
+ * @param {*} value - The value to test
  */
-addRule('isObject', createIsType(Object), '%s must be of type Object');
+addRule('isObject', value => typeof value === 'object' || typeof value === 'function', '%s must be an Object');
 
 /**
+ * Check whether a value is an Array
  * @var {Function} assert.isArray
- * @param {*} type - The desired type of the value
+ * @param {*} value - The value to test
  */
-addRule('isArray', createIsType(Array), '%s must be of type Array');
+addRule('isArray', value => Array.isArray(value), '%s must be an Array');
 
 /**
+ * Check whether a value is a Function
  * @var {Function} assert.isFunction
- * @param {*} type - The desired type of the value
+ * @param {*} value - The value to test
  */
-addRule('isFunction', createIsType(Function), '%s must be of type Function');
+addRule('isFunction', value => typeof value === 'function', '%s must be a Function');
+
+/**
+ * Check whether a value is a user-defined type
+ * @var {Function} assert.isInstanceof
+ * @param {*} value - The value to test
+ */
+addRule('isInstanceof', type => value => value instanceof type, '%s must be a %s');
+
 
 /**
  * Asserts that a number value is >= the given minimum value
