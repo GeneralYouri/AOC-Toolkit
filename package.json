@@ -31,14 +31,14 @@
     },
     "homepage": "https://github.com/GeneralYouri/AOC-Toolkit#readme",
     "dependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+        "@babel/preset-env": "^7.0.0",
         "rollup": "^0.67.0",
         "rollup-plugin-babel": "^4.0.3",
         "rollup-plugin-node-resolve": "^3.4.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.1.2",
-        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-        "@babel/preset-env": "^7.0.0",
         "@types/jest": "^23.3.9",
         "babel-core": "^7.0.0-bridge.0",
         "babel-eslint": "^8.2.6",
