@@ -25,5 +25,7 @@ describe('isPrime', () => {
 });
 
 xdescribe('primeGenerator', () => {
-
+    it('should ', () => {
+        expect(primeGenerator()).toBeUndefined();
+    });
 });
