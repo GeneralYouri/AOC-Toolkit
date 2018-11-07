@@ -20,7 +20,7 @@ describe('isPrime', () => {
         expect(isPrime(1)).toBe(false);
         expect(isPrime(4)).toBe(false);
         expect(isPrime(9)).toBe(false);
-        expect(isPrime(9007199254740991)).toBe(false); // Number.MAX_SAFE_INTEGER
+        expect(isPrime(Number.MAX_SAFE_INTEGER)).toBe(false);
     });
 });
 
