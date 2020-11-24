@@ -1,7 +1,7 @@
-import builtins from 'rollup-plugin-node-builtins';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
+// import builtins from 'rollup-plugin-node-builtins';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import babel from '@rollup/plugin-babel';
 
 export default {
     input: 'src/index.js',
@@ -10,7 +10,7 @@ export default {
         format: 'cjs',
     },
     plugins: [
-        builtins(),
+        // builtins(),
         resolve(),
         commonjs(),
         babel({
