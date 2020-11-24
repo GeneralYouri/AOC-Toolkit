@@ -1,13 +1,13 @@
-import { fibonacciGenerator, evenFibonacciGenerator } from './fibonacci';
+// import { fibonacciGenerator, evenFibonacciGenerator } from './triangular';
 
 xdescribe('fibonacciGenerator', () => {
     it('should ', () => {
-        expect(fibonacciGenerator()).toBeUndefined();
+        // expect(fibonacciGenerator()).toBeUndefined();
     });
 });
 
 xdescribe('evenFibonacciGenerator', () => {
     it('should ', () => {
-        expect(evenFibonacciGenerator()).toBeUndefined();
+        // expect(evenFibonacciGenerator()).toBeUndefined();
     });
 });
