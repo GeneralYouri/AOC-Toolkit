@@ -1,4 +1,16 @@
-import { isPrime, primeGenerator } from './primes';
+import { isPrime, primeGenerator, getPrimeFactorsMap } from './primes';
+
+/** TODO:
+ * isPrimeWheel30
+ * powMod
+ * isPrimeMR
+ * primeGenerator
+ * primeGeneratorLimit
+ * PrimeSieve
+ * getUniquePrimeFactors
+ * getDivisorCount
+ * getDivisorSum
+ */
 
 describe('isPrime', () => {
     it('should recognise primality when a prime is input', () => {
@@ -24,8 +36,27 @@ describe('isPrime', () => {
     });
 });
 
-xdescribe('primeGenerator', () => {
+xdescribe('getPrimeFactorsMap', () => {
     it('should ', () => {
-        expect(primeGenerator()).toBeUndefined();
+        const primeList = [];
+        const primes = primeGenerator();
+        let prime = primes.next().value;
+        while (prime < 1000000) {
+            primeList.push(prime);
+            prime = primes.next().value;
+        }
+
+        let count = 0;
+        for (let n = 0; n < 1000000; n += 1) {
+            if (getPrimeFactorsMap(n, primeList).size === 1) {
+                count += 1;
+            }
+
+        }
+        // TODO
+        // console.log(count);
+        // expect(count).toBe(1280);
+        // expect(count).toBe(9700);
+        expect(count).toBe(78734);
     });
 });
