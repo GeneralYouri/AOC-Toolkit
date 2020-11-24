@@ -6,10 +6,12 @@ import { assert } from './assert';
  * @param {number} length - The length of the desired array
  * @returns {number[]}
  */
-export const createArrayFromLength = (length) => {
+export const createArrayFromLength = (length, defaultValue = undefined) => {
     assert(length, 'length', [assert.greaterThanOrEqual(0)]);
 
-    return Array.from(Array(length));
+    const array = [];
+    array[length - 1] = (typeof defaultValue === 'function') ? defaultValue() : defaultValue;
+    return Array.from(array, () => (typeof defaultValue === 'function') ? defaultValue() : defaultValue);
 };
 
 /**
